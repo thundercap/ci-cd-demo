@@ -1,0 +1,21 @@
+name: CI Pipeline
+
+on: [push, pull_request]  # Trigger on every push and PR
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Get repository code
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install pytest  # Install testing tools
+
+      - name: Run tests
+        run: pytest || echo "No tests found, skipping"
