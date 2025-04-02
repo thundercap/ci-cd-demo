@@ -15,7 +15,10 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install pytest  # Install testing framework
+        run: pip install pytest flake8  # Install testing framework
 
       - name: Run tests
         run: pytest  # Run all tests
+
+      - name: Run linting
+        run: flake8 .
