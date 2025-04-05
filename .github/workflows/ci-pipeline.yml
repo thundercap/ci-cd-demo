@@ -40,6 +40,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu
+            sudo apt install unzip
             rm -f python-app.zip
             curl -O https://github.com/thundercap/ci-cd-demo/actions/runs/14226780318/artifacts/2869746078
             unzip python-app.zip
